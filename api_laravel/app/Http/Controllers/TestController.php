@@ -14,7 +14,7 @@ class TestController extends Controller
     public function testApi($name = null)
     {
         if ($name) {
-            return "Route API fonctionne ! $name";
+            return "Route API fonctionne bro! $name";
         }
         return 'Route API fonctionne !';
     }
