@@ -23,11 +23,15 @@ Route::get('/Mampy', function(){
     return $user;
 });
 
-Route::post('/Mampy', function(){
+/*Route::post('/Mampy', function(){
         $user = new stdClass();
         $user->name = 'Lando';
         $user->age = 20;
         $user->city = 'Toliara';
         return $user;
+});*/
+
+Route::post('/Mampy',function(Request $request){
+    return $request->all();
 });
 
