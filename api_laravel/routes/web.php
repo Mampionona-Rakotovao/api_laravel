@@ -14,6 +14,6 @@ Route::get('/mann', function(){
     return 'hello mann!';
 });
 
-Route::get('/test-api', function () {
-    return 'Route API fonctionne !';
+Route::get('/test-api/{name}', function ($name) {
+    return 'Route API fonctionne !'.$name;
 });

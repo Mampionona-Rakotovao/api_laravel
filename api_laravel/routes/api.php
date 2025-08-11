@@ -11,3 +11,23 @@ Route::get('/test-api', function () {
     return 'Route API fonctionne !';
 });
 
+Route::get('/test-api/{name}', function ($name) {
+    return 'Route API fonctionne !'.$name;
+});
+
+Route::get('/Mampy', function(){
+    $user = new stdClass();
+    $user->name = 'Mampy';
+    $user->age = 19;
+    $user->city = 'Toliara';
+    return $user;
+});
+
+Route::post('/Mampy', function(){
+        $user = new stdClass();
+        $user->name = 'Lando';
+        $user->age = 20;
+        $user->city = 'Toliara';
+        return $user;
+});
+
