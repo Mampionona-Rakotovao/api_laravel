@@ -1,19 +1,13 @@
 <?php
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
-Route::get('/', function () {
-    return view('welcome');
-});
 
 Route::get('/way', function () {
     return 'hello world!';
 });
 
-Route::get('/mann', function(){
-    return 'hello mann!';
-});
-
 Route::get('/test-api', function () {
     return 'Route API fonctionne !';
 });
+
