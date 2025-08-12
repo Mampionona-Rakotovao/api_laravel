@@ -18,4 +18,7 @@ class TestController extends Controller
         }
         return 'Route API fonctionne !';
     }
+    public function postMethod(Request $request){
+        return $request->all();
+    }
 }
