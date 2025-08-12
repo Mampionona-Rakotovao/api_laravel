@@ -30,9 +30,25 @@ class PhotoController extends Controller
      */
     public function store(Request $request)
     {
-        return $request->all();
+        //return $request->all();
         // Validate the request data
-        $validator = Validator::make($request->all());
+        $validator = Validator::make($request->all(),//verificatio
+        [
+            'title' => 'required|string|max:15',
+            'description' => 'required|string|max:100',
+        ], //messages
+        [
+            'title.required' => 'Le titre est obligatoire',
+            'title.string' => 'Le titre doit être une chaîne de caractères',
+            'title.max' => 'Le titre ne doit pas dépasser 15 caractères',
+            'description.required' => 'La description est obligatoire',
+            'description.string' => 'La description doit être une chaîne de caractères',
+            'description.max' => 'La description ne doit pas dépasser 100 caractères',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json(['errors' => $validator->errors()]);
+        }
 
         $photo = new stdClass();
         $photo->title = $request->input('title');
