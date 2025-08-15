@@ -23,3 +23,14 @@ Route::post('/mampy', [TestController::class, 'postMethod']);
 //route pour les photos
 Route::post('/photo',[PhotoController::class, 'store'])->middleware(PhotoMiddleware::class);
 
+Route::get('/env', function(){
+    return response()->json([
+        'connection' => env('DB_CONNECTION'),
+        'port' => env('DB_PORT'),
+        'host' => env('DB_HOST'),
+        'database' => env('DB_DATABASE'),
+        'username' => env('DB_USERNAME'),
+        'password' => env('DB_PASSWORD'),
+    ]);
+});
+
