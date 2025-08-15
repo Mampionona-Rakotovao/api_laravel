@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Photo;
 use stdClass;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
@@ -50,10 +51,11 @@ class PhotoController extends Controller
             return response()->json(['errors' => $validator->errors()]);
         }
 
-        $photo = new stdClass();
-        $photo->title = $request->input('title');
-        $photo->description = $request->input('description');
-        return response()->json($photo);
+        Photo::create([
+            'title' => $request->input('title'),
+            'description' => $request->input('description'),
+        ]);
+        return response()->json(["message"=>"Enregisté avec succès!"]);
         //return response()->json(["message"=>"Photo uploaded successfully!"]);
     }
 
